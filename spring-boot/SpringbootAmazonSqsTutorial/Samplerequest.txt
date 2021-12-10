@@ -1,0 +1,7 @@
+Post url - http://localhost:10091/sqs/send
+
+Sample body -
+{
+    "id": 102,
+    "message": "Welcome to spring sqs tutorial"
+}

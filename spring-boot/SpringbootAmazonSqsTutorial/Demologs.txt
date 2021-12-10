@@ -1,0 +1,9 @@
+-- Message1
+2020-07-20 23:10:55.553  INFO 16828 --- [io-10091-exec-1] com.springboot.amazonsqs.ctrl.SqsCtrl    : Sending the message to the Amazon sqs.
+2020-07-20 23:10:55.670  INFO 16828 --- [io-10091-exec-1] com.springboot.amazonsqs.ctrl.SqsCtrl    : Message sent successfully to the Amazon sqs.
+2020-07-20 23:10:55.698  INFO 16828 --- [enerContainer-3] com.springboot.amazonsqs.ctrl.SqsCtrl    : Received message= Message [id=101, message=Hello-world] with messageId= be289e3e-4af9-4631-9740-872569cf16e1
+
+-- Message2
+2020-07-20 23:11:17.150  INFO 16828 --- [io-10091-exec-3] com.springboot.amazonsqs.ctrl.SqsCtrl    : Sending the message to the Amazon sqs.
+2020-07-20 23:11:17.208  INFO 16828 --- [io-10091-exec-3] com.springboot.amazonsqs.ctrl.SqsCtrl    : Message sent successfully to the Amazon sqs.
+2020-07-20 23:11:17.232  INFO 16828 --- [enerContainer-3] com.springboot.amazonsqs.ctrl.SqsCtrl    : Received message= Message [id=102, message=Welcome to spring sqs tutorial] with messageId= 7adb304d-5cc3-4649-bc28-9322112ed437
