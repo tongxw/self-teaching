@@ -12,7 +12,7 @@ public class FileSourceExample {
 	
 	public static void main(String[] args) {
 		try {
-			String filePath = "D:/masterSpring/code/chapter4/src/main/resources/conf/file1.txt";
+			String filePath = "D:/work/self-teaching/spring4.x/chapter4/src/main/resources/conf/file1.txt";
 			WritableResource res1 = new PathResource(filePath);
 			Resource res2 = new ClassPathResource("conf/file1.txt");
 
@@ -25,7 +25,7 @@ public class FileSourceExample {
 
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
 			int i;
-			while((i=ins1.read())!=-1){
+			while((i=ins2.read())!=-1){
 				baos.write(i);
 			}
 			System.out.println(baos.toString());
