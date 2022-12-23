@@ -90,7 +90,7 @@
 	<bean id="carFactory" class="com.smart.ditype.CarFactory" />
 	<bean id="car5" factory-bean="carFactory" factory-method="createHongQiCar">
 	</bean>
-	<bean id="car6" class="com.smart.ditype.CarFactory"
-		factory-method="createCar"></bean>
+	<bean id="car6" class="com.smart.ditype.CarFactory" factory-method="createCar">
+	</bean>
 
 </beans>
