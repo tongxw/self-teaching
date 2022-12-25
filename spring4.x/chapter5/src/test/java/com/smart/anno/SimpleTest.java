@@ -13,11 +13,11 @@ public class SimpleTest {
         logonService.saveLog();
         Assert.notNull(logonService);
         //LogonController controller = ctx.getBean(LogonController.class);
-        /* Car car1 = ctx.getBean(Car.class);
-	     Car car2 = ctx.getBean(Car.class);
-	     System.out.println(car1 != car2);*/
+        Car car1 = ctx.getBean(Car.class);
+        Car car2 = ctx.getBean(Car.class);
+        System.out.println(car1 != car2);
 
-        //((ClassPathXmlApplicationContext)ctx).destroy();
+        ((ClassPathXmlApplicationContext)ctx).destroy();
         //Thread.currentThread().sleep(10);
     }
 }

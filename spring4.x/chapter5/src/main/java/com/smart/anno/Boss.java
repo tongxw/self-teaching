@@ -34,7 +34,7 @@ public class Boss {
 	
 	@PostConstruct
 	private void init2(){
-		System.out.println("execute in init1");
+		System.out.println("execute in init2");
 	}
 	
 	@PreDestroy

@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Scope;
 public class DaoConfig {
     
 	
-	@Bean(name="")
+	@Bean
 	public UserDao userDao(){
 		return new UserDao();
 	}

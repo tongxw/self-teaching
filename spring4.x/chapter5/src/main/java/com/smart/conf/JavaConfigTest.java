@@ -2,6 +2,7 @@ package com.smart.conf;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class JavaConfigTest {
 	public static void main(String[] args) {
@@ -11,7 +12,7 @@ public class JavaConfigTest {
 
 //2.通过编码方式注册配置类
 //		 AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
-//		 ctx.register(DaoConfig.class);
+//		 ctx.register(DaoConfig.class); // <= ServiceConfig: Import(DaoConfig.class) 之后可以不用注册DaoConfig
 //		 ctx.register(ServiceConfig.class);
 //		 ctx.refresh();
 

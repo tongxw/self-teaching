@@ -9,13 +9,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class LogonService implements BeanNameAware {
 
-    @Lazy
-    @Autowired(required=false)
+//    @Lazy
+//    @Autowired(required=false)
     private LogDao logDao;
 
 
-    @Autowired
-    @Qualifier("userDao")
+//    @Autowired
+//    @Qualifier("userDao")
     private UserDao userDao;
 
     public void saveLog(){
@@ -24,7 +24,7 @@ public class LogonService implements BeanNameAware {
 
 
 
-   /* @Autowired
+    @Autowired
     @Qualifier("userDao")
     public void setUserDao(UserDao userDao) {
         System.out.println("auto inject");
@@ -36,15 +36,14 @@ public class LogonService implements BeanNameAware {
     @Autowired
     public void setLogDao(LogDao logDao) {
         this.logDao = logDao;
-    }*/
+    }
 
-    /*
-        @Autowired
-        public void init(@Qualifier("userDao")UserDao userDao,LogDao logDao){
-            System.out.println("multi param inject");
-            this.userDao = userDao;
-            this.logDao =logDao;
-        }*/
+    @Autowired
+    public void init(@Qualifier("userDao")UserDao userDao,LogDao logDao){
+        System.out.println("multi param inject");
+        this.userDao = userDao;
+        this.logDao =logDao;
+    }
     public LogDao getLogDao() {
         return logDao;
     }
