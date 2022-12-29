@@ -12,7 +12,8 @@ public class Waiter implements BeanSelfProxyAware {
 
 	public void serveTo(String name){
 		System.out.println("waiter serving "+name+"...");
-		//waiter.greetTo(name);
+		waiter.greetTo(name);
+//		this.greetTo(name); // 不会被advice
 	}
 
 	public void greetTo(String name) {

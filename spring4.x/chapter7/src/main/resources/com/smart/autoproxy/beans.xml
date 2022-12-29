@@ -9,12 +9,12 @@ http://www.springframework.org/schema/beans/spring-beans-4.0.xsd http://www.spri
 	<bean id="seller" class="com.smart.advisor.Seller" />
 	<bean id="greetingAdvice" class="com.smart.advisor.GreetingBeforeAdvice" />
 	<!-- 通过Bean名称自动创建代理 -->
-	<!--
-		<bean
-		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator"
-		p:beanNames="*er" p:interceptorNames="greetingAdvice"
-		p:optimize="true"/>
-	-->
+
+<!--	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator"-->
+<!--		  p:beanNames="waiter,seller"-->
+<!--		  p:interceptorNames="greetingAdvice"-->
+<!--		  p:optimize="true"/>-->
+
 
 
 	<!--通过Advisor自动创建代理-->

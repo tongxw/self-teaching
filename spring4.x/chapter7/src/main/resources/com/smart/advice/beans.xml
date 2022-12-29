@@ -29,7 +29,8 @@
 	-->
     <!--3. around advice -->
 	<bean id="waiter" class="org.springframework.aop.framework.ProxyFactoryBean"
-		p:proxyInterfaces="com.smart.advice.Waiter" p:target-ref="target"
+		p:proxyInterfaces="com.smart.advice.Waiter"
+		p:target-ref="target"
 		p:interceptorNames="greetingAround" />
 
 
