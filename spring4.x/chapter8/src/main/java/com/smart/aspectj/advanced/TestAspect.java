@@ -1,8 +1,9 @@
 package com.smart.aspectj.advanced;
 
+import com.smart.Monitorable;
+import com.smart.Waiter;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.*;
 
 @Aspect
 public class TestAspect {
@@ -35,29 +36,29 @@ public class TestAspect {
 //	public void pkgGreetToNotNaiveWaiter(){
 //		System.out.println("--pkgGreetToNotNaiveWaiter() executed!--");
 //	}
-//
+
     //------------访问连接点对象----------//
-	@Around("execution(* greetTo(..)) && target(com.smart.NaiveWaiter)")
-	public void joinPointAccess(ProceedingJoinPoint pjp) throws Throwable{
-		System.out.println("------joinPointAccess-------");
-		System.out.println("args[0]:"+pjp.getArgs()[0]);		
-		System.out.println("signature:"+pjp.getTarget().getClass());
-		pjp.proceed();
-		System.out.println("-------joinPointAccess-------");
-	}
-//	
+//	@Around("execution(* greetTo(..)) && target(com.smart.NaiveWaiter)")
+//	public void joinPointAccess(ProceedingJoinPoint pjp) throws Throwable{
+//		System.out.println("------joinPointAccess start-------");
+//		System.out.println("args[0]:"+pjp.getArgs()[0]);
+//		System.out.println("signature:"+pjp.getTarget().getClass());
+//		pjp.proceed();
+//		System.out.println("-------joinPointAccess end-------");
+//	}
+
 //  //------------绑定连接点参数----------//
 //	@Before("target(com.smart.NaiveWaiter) && args(name,num,..)")
 //	public void bindJoinPointParams(int num,String name){
 //	   System.out.println("----bindJoinPointParams()----");
-//	   System.out.println("name:"+name);
-//	   System.out.println("num:"+num);
+//	   System.out.println("name: "+name);
+//	   System.out.println("num: "+num);
 //	   System.out.println("----bindJoinPointParams()----");
 //	}
 
   //------------绑定代理对象----------//
 //	@Before("execution(* greetTo(..)) && this(waiter)")
-//	@Before("this(waiter)")
+////	@Before("this(waiter)")
 //	public void bindProxyObj(Waiter waiter){
 //	   System.out.println("----bindProxyObj()----");
 //	   System.out.println(waiter.getClass().getName());
@@ -71,7 +72,7 @@ public class TestAspect {
 //	   System.out.println(m.getClass().getName());
 //	   System.out.println("----bindTypeAnnoObject()----");
 //	}
-    //------------绑定抛出的异常----------//
+    //------------绑定返回值----------//
 //	@AfterReturning(value="target(com.smart.SmartSeller)",returning="retVal")
 //	public void bingReturnValue(int retVal){
 //	   System.out.println("----bingReturnValue()----");
@@ -80,10 +81,10 @@ public class TestAspect {
 //	}
 	
 //    //------------绑定抛出的异常----------//
-//	@AfterThrowing(value="target(com.smart.SmartSeller)",throwing="iae")
-//	public void bindException(IllegalArgumentException iae){
-//	   System.out.println("----bindException()----");
-//	   System.out.println("exception:"+iae.getMessage());
-//	   System.out.println("----bindException()----");
-//	}	
+	@AfterThrowing(value="target(com.smart.SmartSeller)",throwing="iae")
+	public void bindException(IllegalArgumentException iae){
+	   System.out.println("----bindException()----");
+	   System.out.println("exception:"+iae.getMessage());
+	   System.out.println("----bindException()----");
+	}
 }

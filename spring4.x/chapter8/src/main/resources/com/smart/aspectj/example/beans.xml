@@ -5,7 +5,8 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
     <aop:aspectj-autoproxy/>
-    <!--bean class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator"/-->
+<!--	下面这句和上面的效果是一样的 -->
+<!--    <bean class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator"/>-->
 	<bean id="waiter" class="com.smart.NaiveWaiter" />
 	<bean class="com.smart.aspectj.example.PreGreetingAspect" />
 </beans>

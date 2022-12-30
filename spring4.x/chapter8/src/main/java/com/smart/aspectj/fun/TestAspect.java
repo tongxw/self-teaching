@@ -11,27 +11,45 @@ import org.springframework.core.Ordered;
  */
 @Aspect
 public class TestAspect implements Ordered{
+	// 8.5.1
+//	@AfterReturning("@annotation(com.smart.anno.NeedTest)")
+//	public void needTestFun() {
+//		System.out.println("afterReturning: needTestFun() executed!");
+//	}
+
+	// 8.5.2
 //    @Before("execution(public * *(..))")
 //	public void allPublicFun(){
-//	    System.out.println("allPublicFun() executed!");	
+//	    System.out.println("before: allPublicFun() executed!");
 //	}
+//
 //    @AfterReturning("execution(* *To(..))")
 //    public void allToFun(){
-//    	System.out.println("allToFun() executed!");
+//    	System.out.println("after returning: allToFun() executed!");
 //    }
-//    @Before("execution(* com.smart.aspectj.fun.Waiter.*(..))")
+
+//    @Before("execution(* com.smart.Waiter.*(..))")
 //    public void allWaiterFun(){
-//    	System.out.println("allWaiterFun() executed!");
+//    	System.out.println("before: allWaiterFun() executed!");
 //    }
-//    @Before("execution(* com.smart.aspectj.fun.Waiter+.*(..))")
+//    @Before("execution(* com.smart.Waiter+.*(..))")
 //    public void allChildClassFun(){
-//    	System.out.println("allChildClassFun() executed!");
+//    	System.out.println("before: allChildClassFun() executed!");
 //    }
-//	@Before("execution(* joke(Object,int)))")
-	@Before("args(Object,*)")
-    public void jokeFun(){
-    	System.out.println("jokeFun() executed!");
-    }
+
+//	@Before("execution(* joke(String,int)))")
+//	@Before("execution(* joke(String,*)))")
+//	@Before("execution(* joke(String,..)))")
+//	@Before("args(Object,*)")
+//    public void jokeFun(){
+//    	System.out.println("before: jokeFun() executed!");
+//    }
+
+	// 8.5.3
+//	@Before("args(com.smart.Waiter)")
+//	public void argWaiterFun() {
+//		System.out.println("before: args is Waiter");
+//	}
 //    @AfterReturning("@annotation(com.smart.anno.NeedTest)")
 //    public void atAnnotaionTest(){
 //    	System.out.println("atAnnotaionTest() executed!");
@@ -44,17 +62,28 @@ public class TestAspect implements Ordered{
 //    public void atArgsTest(){
 //    	System.out.println("atArgsTest() executed!");
 //    }
-//    @Before("within(com.smart.aspectj.fun.Waiter)")
+
+	// 8.5.4
+//    @Before("within(com.smart.NaiveWaiter)")
+//	@Before("within(com.smart.*)")
+//	@Before("target(com.smart.Waiter)")
+//	@Before("this(com.smart.Waiter)")
 //    public void withinTest(){
-//    	System.out.println("withinTest() executed!");
+//    	System.out.println("before: withinTest() executed!");
 //    }
 //    @Before("@within(com.smart.aspectj.fun.Monitorable)")
 //	public void atWithinTest() {
 //		System.out.println("atWithinTest() executed!");
-//	} 
+//	}
+
+	// "this" vs "target" 引介增强中有区别
 	@AfterReturning("this(com.smart.Seller)")
 	public void thisTest(){
-		System.out.println("thisTest() executed!");
+		System.out.println("after returning: thisTest() executed!");
+	}
+	@AfterReturning("target(com.smart.Seller)")
+	public void targetTest(){
+		System.out.println("after returning: targetTest() executed!");
 	}
 	public int getOrder() {
 		// TODO Auto-generated method stub

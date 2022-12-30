@@ -8,7 +8,13 @@ public class SmartSeller implements Seller {
 	}
 	
 	public void checkBill(int billId){
-		if(billId == 1) throw new IllegalArgumentException("iae Exception");
-		else throw new RuntimeException("re Exception");
+		if (billId == 1) {
+			System.out.println("throw IllegalArgumentException");
+			throw new IllegalArgumentException("IllegalArgumentException Exception");
+		}
+		else {
+			System.out.println("throw RuntimeException");
+			throw new RuntimeException("re Exception");
+		}
 	}
 }
