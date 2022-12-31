@@ -17,7 +17,7 @@ public class MethodExprSample {
         Integer index = parser.parseExpression("'Spring SpEL'.indexOf('SpEL')").getValue(Integer.class);
 
         boolean isCorrect = parser.parseExpression("validatePassword('123456')").getValue(context, Boolean.class);
-        isCorrect = parser.parseExpression("validatePassword2('123456')").getValue(context, Boolean.class);
+//        isCorrect = parser.parseExpression("validatePassword2('123456')").getValue(context, Boolean.class); // private method will cause error
         isCorrect = parser.parseExpression("validatePassword3('123456')").getValue(context, Boolean.class);
         parser.parseExpression("addInterests('Js','C')").getValue(context, Boolean.class);
 

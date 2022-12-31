@@ -29,17 +29,17 @@ public class PropertyExprSample {
 
 
 
-        class Simple{
-            public List<Boolean> booleanList= new ArrayList<Boolean>();
-        }
-        Simple simple= new Simple();
-        simple.booleanList.add(true);
-//创建请值上下文
-        StandardEvaluationContext simpleContext= new StandardEvaluationContext(simple);
-//会自动将"false"转换为Boolean型
-        parser.parseExpression("booleanList[0]").setValue(simpleContext, "false1");
-//b将被设置为false
-        Boolean b=simple.booleanList.get(0);
+//        class Simple{
+//            public List<Boolean> booleanList= new ArrayList<Boolean>();
+//        }
+//        Simple simple= new Simple();
+//        simple.booleanList.add(true);
+////创建请值上下文
+//        StandardEvaluationContext simpleContext= new StandardEvaluationContext(simple);
+////会自动将"false"转换为Boolean型
+//        parser.parseExpression("booleanList[0]").setValue(simpleContext, "false1");
+////b将被设置为false
+//        Boolean b=simple.booleanList.get(0);
 
     }
 

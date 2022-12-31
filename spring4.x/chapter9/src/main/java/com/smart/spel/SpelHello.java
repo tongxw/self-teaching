@@ -9,7 +9,8 @@ public class SpelHello {
     public static void main(String[] args) {
         ExpressionParser parser =new SpelExpressionParser();
         Expression exp = parser.parseExpression("'Hello'+' World'");
-        String message = (String) exp.getValue();
+//        String message = (String) exp.getValue();
+        String message = exp.getValue(String.class);
         System.out.println(message);
     }
 }

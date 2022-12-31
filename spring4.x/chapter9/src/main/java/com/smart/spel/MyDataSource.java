@@ -9,7 +9,7 @@ public class MyDataSource {
     @Value("#{properties['driverClassName']}")
 	private String driverClassName;
     
-    @Value("${url}")
+    @Value("${url}") // 注意bean.xml定义了： property-placeholder = "properties"，所以可以简写
 	private String url;
     
     @Value("#{properties['userName']}")

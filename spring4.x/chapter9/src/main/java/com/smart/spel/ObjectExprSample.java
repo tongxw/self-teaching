@@ -24,7 +24,9 @@ public class ObjectExprSample {
         List<Integer> credits= new ArrayList<Integer>();
         credits.addAll(Arrays.asList(150,100,90,50,110,130,70));
         context.setVariable("credits",credits);
-        List<Boolean> creditsGreater100=
+        //集合转换， 判断所有元素是否 > 100，返回结果list:[true, false, true, true, false, ... ]
+        // ![projectExpr]
+        List<Boolean> creditsGreater100BooleanList=
                (List<Boolean>)parser.parseExpression("#credits.![#this>100]").getValue(context);
 
 
@@ -35,10 +37,14 @@ public class ObjectExprSample {
         creditsMap.put("dMose",120);
         creditsMap.put("eMorrow",60);
         context.setVariable("credits",creditsMap);
-        List creditsGreater100Map=
-                (List)parser.parseExpression("#credits.![value>90]").getValue(context);
+        // filter: ?[filterExpr]
+        // 返回所有 value > 90
+        Map creditsGreater100Map=
+                (Map)parser.parseExpression("#credits.?[value>90]").getValue(context);
 
+        // 返回第一个value > 90
         Object value = parser.parseExpression("#credits.^[value>90]").getValue(context);
+        // 返回最后一个value > 90
         Object value2 = parser.parseExpression("#credits.$[value>90]").getValue(context);
 
         parser.parseExpression("userName='anyli'").getValue(context);

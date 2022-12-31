@@ -23,11 +23,6 @@ public class OperatorExprSample {
          // NOT
         falseValue = parser.parseExpression("!true").getValue(Boolean.class);
 
-
-
-
-
-
         //关系操作符
          trueValue = parser.parseExpression("2 == 2").getValue(Boolean.class);
          falseValue = parser.parseExpression("2 < -5.0").getValue(Boolean.class);
@@ -37,10 +32,6 @@ public class OperatorExprSample {
         boolean falseValue2 = parser.parseExpression("'xyz' instanceof T(int)").getValue(Boolean.class);
         boolean trueValue2 = parser.parseExpression("'5.00' matches '^-?\\d+(\\.\\d{2})?$'").getValue(Boolean.class);
         boolean falseValue3 = parser.parseExpression("'5.0067' matches '\\^-?\\d+(\\.\\d{2})?$'").getValue(Boolean.class);
-
-
-
-
 
         //加法操作
         int two = parser.parseExpression("1 + 1").getValue(Integer.class); // 2

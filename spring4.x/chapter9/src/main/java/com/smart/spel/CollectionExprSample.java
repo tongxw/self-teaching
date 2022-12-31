@@ -17,10 +17,12 @@ public class CollectionExprSample {
         user.setCredits(100);
         user.setPlaceOfBirth(new PlaceOfBirth("中国","厦门"));
         user.setInterestsArray(new String[]{"Java","C++"});
+
         Map interestsMap = new HashMap();
         interestsMap.put("interest1","Java");
         interestsMap.put("interest2","C++");
         user.setInterestsMap(interestsMap);
+
         List<String> interestsList = new ArrayList();
         interestsList.add("Java");
         interestsList.add("C++");
