@@ -36,22 +36,22 @@
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
           p:dataSource-ref="dataSource"/>
 
-    <!--
-        <bean id="transactionManager"
+
+    <bean id="transactionManager"
         class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
-        </bean>
-        <bean id="bbtForum" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+    </bean>
+    <bean id="bbtForum" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
         <property name="transactionManager" ref="transactionManager"/>
         <property name="target" >
-        <bean class="com.smartvice.EntityManagerBbtForum" autowire="autodetect"/>
+            <bean class="com.smartvice.EntityManagerBbtForum" autowire="autodetect"/>
         </property>
         <property name="transactionAttributes">
-        <props>
-        <prop key="*">PROPAGATION_REQUIRED</prop>
-        </props>
+            <props>
+                <prop key="*">PROPAGATION_REQUIRED</prop>
+            </props>
         </property>
-        </bean>
-    -->
+    </bean>
+
 
 </beans>

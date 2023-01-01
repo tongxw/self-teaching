@@ -21,8 +21,9 @@
     </aop:config>
     <tx:advice id="txAdvice">
         <tx:attributes>
-            <tx:method name="get*" read-only="false"/>
-            <tx:method name="add*" rollback-for="PessimisticLockingFailureException"/>
+            <tx:method name="get*" read-only="true"/>
+<!--            <tx:method name="add*" rollback-for="PessimisticLockingFailureException"/>-->
+            <tx:method name="add*" rollback-for="Exception"/>
             <tx:method name="update*"/>
         </tx:attributes>
     </tx:advice>
