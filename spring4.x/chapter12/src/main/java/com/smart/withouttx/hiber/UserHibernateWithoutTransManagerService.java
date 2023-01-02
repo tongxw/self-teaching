@@ -31,9 +31,9 @@ public class UserHibernateWithoutTransManagerService {
 
     public void addScore(String userName,int toAdd){
         User user = hibernateTemplate.get(User.class,userName);
-//        user.setScore(user.getScore()+toAdd);
+        user.setScore(user.getScore()+toAdd);
         //以下语句取消注释后，由于默认事务管理器不支持数据更改将报异常
-//        hibernateTemplate.update(user);
+        hibernateTemplate.update(user);
     }
 
     public static void main(String[] args) {

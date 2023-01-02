@@ -14,17 +14,17 @@ import java.io.Serializable;
  * @version 1.0
  */
 @Entity
-@Table(name="T_USER")
+@Table(name="t_user")
 public class User implements Serializable{
     @Id
-    @Column(name = "USER_NAME")
+    @Column(name = "user_name")
     private String userName;
 
     private String password;
 
     private int score;
 
-    @Column(name = "LAST_LOGON_TIME")
+    @Column(name = "last_logon_time")
     private long lastLogonTime = 0;
 
 

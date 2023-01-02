@@ -27,8 +27,8 @@ public class JdbcUserService {
     @Transactional
     public void logon(String userName) {
         try {
-            Connection conn = jdbcTemplate.getDataSource().getConnection();
-//            Connection conn = DataSourceUtils.getConnection(jdbcTemplate.getDataSource());
+            Connection conn = jdbcTemplate.getDataSource().getConnection(); // leak
+//            Connection conn = DataSourceUtils.getConnection(jdbcTemplate.getDataSource()); // no leak
             
             String sql = "UPDATE t_user SET last_logon_time=? WHERE user_name =?";
             jdbcTemplate.update(sql, System.currentTimeMillis(), userName);
