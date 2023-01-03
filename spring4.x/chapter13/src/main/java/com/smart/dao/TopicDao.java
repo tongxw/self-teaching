@@ -30,9 +30,9 @@ public class TopicDao {
 						int replies = rs.getInt("topic_replies");
 						int views = rs.getInt("topic_views");
 						if (views > 0)
-							return new Double((double) replies / views);
+							return (double) replies / views;
 						else
-							return new Double(0.0);
+							return 0.0;
 					}
 				});
 		return rate;
@@ -41,17 +41,17 @@ public class TopicDao {
 	public int getUserTopicNum(final int userId) {
 		String sql = "{call P_GET_TOPIC_NUM(?,?)}";
 		//方式1
-/*		Integer num = jdbcTemplate.execute(sql,
-				new CallableStatementCallback<Integer>() {
-					public Integer doInCallableStatement(CallableStatement cs)
-							throws SQLException, DataAccessException {
-						cs.setInt(1, userId);
-						cs.registerOutParameter(2, Types.INTEGER);
-						cs.execute();
-						return cs.getInt(2);
-					}
-				});
-		return num;*/
+//		int num = jdbcTemplate.execute(sql,
+//				new CallableStatementCallback<Integer>() {
+//					public Integer doInCallableStatement(CallableStatement cs)
+//							throws SQLException, DataAccessException {
+//						cs.setInt(1, userId);
+//						cs.registerOutParameter(2, Types.INTEGER);
+//						cs.execute();
+//						return cs.getInt(2);
+//					}
+//				});
+//		return num;
 		
 		//方式2
 		CallableStatementCreatorFactory fac = new CallableStatementCreatorFactory(sql); 
@@ -76,7 +76,7 @@ public class TopicDao {
 
 	public SqlRowSet getTopicRowSet(int userId) {
 		String sql = "SELECT topic_id,topic_title FROM t_topic WHERE user_id=?";
-		return jdbcTemplate.queryForRowSet(sql,userId);
+		return jdbcTemplate.queryForRowSet(sql, userId);
 
 	};
 }

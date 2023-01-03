@@ -42,23 +42,22 @@ public class ForumDao {
 	 */
 	public void addForum(final Forum forum) {
 		final String sql = "INSERT INTO t_forum(forum_name,forum_desc) VALUES(?,?)";
-		Object[] params = new Object[] { forum.getForumName(),
-				forum.getForumDesc() };
-		// 方式1
-		// jdbcTemplate.update(sql, params);
+		Object[] params = new Object[] { forum.getForumName(), forum.getForumDesc() };
+		// 原始方法
+//		jdbcTemplate.update(sql, params);
 
-		// 方式2
-		// jdbcTemplate.update(sql, params,new
-		// int[]{Types.VARCHAR,Types.VARCHAR});
+		// 原始方法 + 指定类型
+		// jdbcTemplate.update(sql, params,new int[]{Types.VARCHAR,Types.VARCHAR});
 
 		// 方式3
-		/*
-		 * jdbcTemplate.update(sql, new PreparedStatementSetter() { public void
-		 * setValues(PreparedStatement ps) throws SQLException { ps.setString(1,
-		 * forum.getForumName()); ps.setString(2, forum.getForumDesc()); } });
-		 */
+//		 jdbcTemplate.update(sql, new PreparedStatementSetter() {
+//			 public void setValues(PreparedStatement ps) throws SQLException {
+//				 ps.setString(1, forum.getForumName());
+//				 ps.setString(2, forum.getForumDesc());
+//			 }
+//		 });
 
-		// 方式4
+		// 方式4：获取自增主键
 		KeyHolder keyHolder = new GeneratedKeyHolder();
 		jdbcTemplate.update(new PreparedStatementCreator() {
 			public PreparedStatement createPreparedStatement(Connection conn)
@@ -123,16 +122,18 @@ public class ForumDao {
 	public List<Forum> getForums(final int fromId, final int toId) {
 		String sql = "SELECT forum_id,forum_name,forum_desc FROM t_forum WHERE forum_id between ? and ?";
 		// 方法1：使用RowCallbackHandler接口
-		/*
-		 * final List<Forum> forums = new ArrayList<Forum>();
-		 * jdbcTemplate.query(sql,new Object[]{fromId,toId},new
-		 * RowCallbackHandler(){ public void processRow(ResultSet rs) throws
-		 * SQLException { Forum forum = new Forum();
-		 * forum.setForumId(rs.getInt("forum_id"));
-		 * forum.setForumName(rs.getString("forum_name"));
-		 * forum.setForumDesc(rs.getString("forum_desc")); forums.add(forum);
-		 * }}); return forums;
-		 */
+//		final List<Forum> forums = new ArrayList<Forum>();
+//		jdbcTemplate.query(sql, new Object[]{fromId, toId}, new	RowCallbackHandler() {
+//			public void processRow(ResultSet rs) throws	SQLException {
+//				Forum forum = new Forum();
+//				forum.setForumId(rs.getInt("forum_id"));
+//				forum.setForumName(rs.getString("forum_name"));
+//				forum.setForumDesc(rs.getString("forum_desc"));
+//				forums.add(forum);
+//			}
+//		});
+//		return forums;
+
 
 		return jdbcTemplate.query(sql, new Object[] { fromId, toId },
 				new RowMapper<Forum>() {
@@ -149,6 +150,7 @@ public class ForumDao {
 	}
 
 	int getForumNum() {
-		return 0;
+		final String sql = "SELECT COUNT(*) FROM t_forum";
+		return jdbcTemplate.queryForObject(sql, Integer.class);
 	};
 }

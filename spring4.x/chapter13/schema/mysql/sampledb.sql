@@ -22,7 +22,7 @@ create table t_post_id
 (
    sequence_id  int
 )
-type = MYISAM;
+ENGINE=MyISAM;
  insert into t_post_id values(0);
 
 /*==============================================================*/
@@ -92,13 +92,13 @@ create index IDX_TOPIC_TITLE on t_topic
 );
 
 
-insert into t_topic (topic_id, forum_id, topic_title, user_id, topic_time, topic_views, topic_replies) values (1, 2, 'Ö÷Ìâ1', 1, '1-1-1 0:0:1', 166, 1);
+insert into t_topic (topic_id, forum_id, topic_title, user_id, topic_time, topic_views, topic_replies) values (1, 2, 'ï¿½ï¿½ï¿½ï¿½1', 1, '1-1-1 0:0:1', 166, 1);
 
-insert into t_topic (topic_id, forum_id, topic_title, user_id, topic_time, topic_views, topic_replies) values (2, 1, 'Ö÷Ìâ2', 1, '1-1-1 0:0:0', 100, 49);
+insert into t_topic (topic_id, forum_id, topic_title, user_id, topic_time, topic_views, topic_replies) values (2, 1, 'ï¿½ï¿½ï¿½ï¿½2', 1, '1-1-1 0:0:0', 100, 49);
 
-insert into t_topic (topic_id, forum_id, topic_title, user_id, topic_time, topic_views, topic_replies) values (3, 3, 'Ö÷Ìâ3', 1, '1-1-1 0:0:1', 130, 70);
+insert into t_topic (topic_id, forum_id, topic_title, user_id, topic_time, topic_views, topic_replies) values (3, 3, 'ï¿½ï¿½ï¿½ï¿½3', 1, '1-1-1 0:0:1', 130, 70);
 
-insert into t_topic (topic_id, forum_id, topic_title, user_id, topic_time, topic_views, topic_replies) values (4, 0, 'Ö÷Ìâ4', 2, '1-1-1 0:0:2', 166, 22);
+insert into t_topic (topic_id, forum_id, topic_title, user_id, topic_time, topic_views, topic_replies) values (4, 0, 'ï¿½ï¿½ï¿½ï¿½4', 2, '1-1-1 0:0:2', 166, 22);
 
 delimiter //
 CREATE PROCEDURE P_GET_TOPIC_NUM(IN in_user_id INT,OUT out_num INT)
