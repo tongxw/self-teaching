@@ -28,10 +28,12 @@
           class="org.springframework.jdbc.support.lob.DefaultLobHandler"
           lazy-init="true"/>
 
+    <!-- 指定统一数据源，之后配置属性 -->
     <bean id="sessionFactory"
           class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
           p:dataSource-ref="dataSource"
-          p:mappingDirectoryLocations="classpath:/com/smart/domain">
+          p:mappingDirectoryLocations="classpath:/com/smart/domain"
+          p:logHandler-ref="lobHandler">
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">

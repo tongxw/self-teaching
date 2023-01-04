@@ -32,7 +32,7 @@ public class ForumHibernateDao extends BaseDao {
 	}
 
 	public long getForumNum2() {
-		Long forumNum = getHibernateTemplate().execute(
+		return getHibernateTemplate().execute(
 				new HibernateCallback<Long>() {
 					public Long doInHibernate(Session session)
 							throws HibernateException{
@@ -43,7 +43,6 @@ public class ForumHibernateDao extends BaseDao {
 						return (Long) obj;
 					}
 				});
-		return forumNum;
 	}
 
 	public List<Forum> findForumByName(String forumName) {
