@@ -7,24 +7,27 @@
     http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <cache:annotation-driven/>
     <context:component-scan base-package="com.smart.*"/>
-    <bean id="cacheManager"
-          class="org.springframework.cache.support.SimpleCacheManager">
-        <property name="caches">
-            <set>
-                <bean
-                        class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"
-                        p:name="default"/>
-                <bean
-                        class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"
-                        p:name="users"/>
-                <bean
-                        class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"
-                        p:name="members"/>
-                <bean
-                        class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"
-                        p:name="visitors"/>
+<!--    <bean id="cacheManager"-->
+<!--          class="org.springframework.cache.support.SimpleCacheManager">-->
+<!--        <property name="caches">-->
+<!--            <set>-->
+<!--                <bean-->
+<!--                        class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"-->
+<!--                        p:name="default"/>-->
+<!--                <bean-->
+<!--                        class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"-->
+<!--                        p:name="users"/>-->
+<!--                <bean-->
+<!--                        class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"-->
+<!--                        p:name="members"/>-->
+<!--                <bean-->
+<!--                        class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"-->
+<!--                        p:name="visitors"/>-->
 
-            </set>
-        </property>
-    </bean>
+<!--            </set>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+<!--    不需要定义缓存 -->
+    <bean id="cacheManager" class="org.springframework.cache.concurrent.ConcurrentMapCacheManager"/>
 </beans>

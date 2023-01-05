@@ -2,6 +2,7 @@ package com.smart.cache.cacheput;
 
 import com.smart.cache.domain.User;
 import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -18,6 +19,7 @@ public class UserService {
     }
 
     @CachePut(value = "users")
+//    @Cacheable(value = "users")
     public User getUser(int id) {
         System.out.println("User with id " + id + " requested.");
         return users.get(id);

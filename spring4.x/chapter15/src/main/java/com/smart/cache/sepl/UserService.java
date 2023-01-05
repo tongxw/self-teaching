@@ -2,10 +2,12 @@ package com.smart.cache.sepl;
 
 import com.smart.cache.domain.User;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@Service(value = "seplUserServcie")
 public class UserService {
     private Map<Integer, User> users = new HashMap<Integer, User>();
     {

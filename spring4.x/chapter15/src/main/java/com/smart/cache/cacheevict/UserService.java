@@ -25,7 +25,7 @@ public class UserService {
         return users.get(id);
     }
 
-    @CacheEvict("users")
+    @CacheEvict(value = "users", beforeInvocation = true)
     public void removeUser(int id) {
         users.remove(id);
     }
