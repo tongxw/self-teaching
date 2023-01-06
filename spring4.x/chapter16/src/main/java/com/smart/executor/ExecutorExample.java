@@ -2,6 +2,8 @@ package com.smart.executor;
 
 import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.core.task.TaskExecutor;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+import org.springframework.scheduling.quartz.SimpleThreadPoolTaskExecutor;
 
 public class ExecutorExample {
 	private TaskExecutor executor;
@@ -15,7 +17,8 @@ public class ExecutorExample {
 	}
 	public static void main(String[] args) {
 		ExecutorExample ee = new ExecutorExample();
-		ee.setExecutor(new SimpleAsyncTaskExecutor());
+//		ee.setExecutor(new SimpleAsyncTaskExecutor());
+		ee.setExecutor(new SimpleThreadPoolTaskExecutor());
 		ee.executeTasks();
 	}
 }

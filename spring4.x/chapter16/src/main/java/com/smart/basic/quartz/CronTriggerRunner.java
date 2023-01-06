@@ -15,7 +15,7 @@ public class CronTriggerRunner {
 					SimpleJob.class);
 			CronTrigger cronTrigger = new CronTrigger("trigger1_2", "tgroup1");
 
-			CronExpression cexp = new CronExpression("0/5 * * * * ?");
+			CronExpression cexp = new CronExpression("0/10 * * * * ?");
 			cronTrigger.setCronExpression(cexp);
 			
 

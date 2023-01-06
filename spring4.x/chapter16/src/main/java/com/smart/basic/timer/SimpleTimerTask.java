@@ -9,6 +9,8 @@ public class SimpleTimerTask  extends TimerTask{
 		System.out.println("execute task.");
 		Date exeTime = (new Date(scheduledExecutionTime()));
 		System.out.println("本次任务安排执行时间点为："+exeTime);
-        if(++count > 5){cancel();}    
+        if(++count > 5){
+			cancel();
+		}
 	}
 }
