@@ -38,6 +38,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/user")
 // @SessionAttributes(value={"user","user1","user2"},types={Dept.class})
+@SessionAttributes("user")
 public class UserController {
 
 	private UserService userService;
@@ -64,6 +65,7 @@ public class UserController {
 	@RequestMapping(value = "/delete", method = RequestMethod.POST, params = "userId")
 	public String test1(@RequestParam("userId") String userId) {
 		// do sth
+		System.out.println("HTTP DEL user_id: " + userId);
 		return "user/test1";
 	}
 
@@ -94,12 +96,14 @@ public class UserController {
 	// ③请求参数按名称匹配的方式绑定到user的属性中、方法返回对应的字符串代表逻辑视图名
 	@RequestMapping(value = "/handle3")
 	public String handle3(User user) {
+		System.out.println("handle3 => " + user.toString());
 		return "success";
 	}
 
 	// ④直接将HTTP请求对象传递给处理方法、方法返回对应的字符串代表逻辑视图名
 	@RequestMapping(value = "/handle4")
 	public String handle4(HttpServletRequest request) {
+		System.out.println("handle4 => " + request.toString());
 		return "success";
 	}
 
@@ -107,6 +111,7 @@ public class UserController {
 	public String handle11(
 			@RequestParam(value = "userName", required = false) String userName,
 			@RequestParam("age") int age) {
+		System.out.println("req params: username: " + userName + " age: " + age);
 		return "success";
 	}
 
@@ -179,13 +184,13 @@ public class UserController {
 		FileCopyUtils.copy(res.getInputStream(), os);
 	}
 
-	// @RequestMapping(value="/{userId}")
-	// public ModelAndView showDetail(@PathVariable("userId") String userId){
-	// ModelAndView mav = new ModelAndView();
-	// mav.setViewName("user/showDetail");
-	// mav.addObject("user", userService.getUserById(userId));
-	// return mav;
-	// }
+	@RequestMapping(value = "/{userId}")
+	public ModelAndView showDetail(@PathVariable("userId") String userId) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("user/showDetail");
+		mav.addObject("user", userService.getUserById(userId));
+		return mav;
+	}
 
 	@RequestMapping(value = "/handle41")
 	public String handle41(@RequestBody String body) {

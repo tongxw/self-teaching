@@ -104,4 +104,9 @@ public class User {
 	public void setDept(Dept dept) {
 		this.dept = dept;
 	}
+
+	public String toString() {
+		return "user_id: " + userId + ", username: " + userName + ", password: "
+				+ password + ", birthday: " + birthday.toString() + ", salary: " + salary;
+	}
 }

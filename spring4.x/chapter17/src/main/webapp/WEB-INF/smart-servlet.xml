@@ -9,7 +9,7 @@
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
         ">
 
-    <context:component-scan base-package="com.smart.web"/>
+    <context:component-scan base-package="com.smart.web, com.smart.rest"/>
 
     <!-- 在使用Excel/PDF/XML的视图时，请先把这个视图解析器注释掉，否则产生视图解析问题-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
@@ -38,8 +38,7 @@
         </property>
     </bean>
 
-    <bean
-            class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"
             p:messageConverters-ref="messageConverters">
         <property name="webBindingInitializer">
             <bean class="com.smart.web.MyBindingInitializer"/>
