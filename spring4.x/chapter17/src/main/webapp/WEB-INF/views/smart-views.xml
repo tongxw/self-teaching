@@ -6,7 +6,7 @@
 	 
 	<bean id="userListJson1"
 		class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"
-		p:modelKeys="message" />
+		p:modelKeys="userList" />
     <bean id="userListExcel1" class="com.smart.web.UserListExcelView"/>
     <bean id="userListPdf1" class="com.smart.web.UserListPdfView"/>
     

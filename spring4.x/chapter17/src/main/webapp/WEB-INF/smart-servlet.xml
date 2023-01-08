@@ -12,9 +12,9 @@
     <context:component-scan base-package="com.smart.web, com.smart.rest"/>
 
     <!-- 在使用Excel/PDF/XML的视图时，请先把这个视图解析器注释掉，否则产生视图解析问题-->
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-          p:order="100" p:viewClass="org.springframework.web.servlet.view.JstlView"
-          p:prefix="/WEB-INF/views/" p:suffix=".jsp"/>
+<!--    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"-->
+<!--          p:order="100" p:viewClass="org.springframework.web.servlet.view.JstlView"-->
+<!--          p:prefix="/WEB-INF/views/" p:suffix=".jsp"/>-->
 
     <mvc:annotation-driven conversion-service="conversionService"/>
 
@@ -117,7 +117,7 @@
           p:ignoreAcceptHeader="true"
           p:favorPathExtension="false"
           p:favorParameter="true"
-          p:parameterName="format"
+          p:parameterName="content"
           p:defaultContentType="text/html">
         <property name="mediaTypes">
             <value>

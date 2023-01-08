@@ -24,25 +24,25 @@ public class User {
 	private String userId;
 	
 	@XStreamAsAttribute
-	@Pattern(regexp="w{4,30}")
+	@Pattern(regexp="w{4,30}") // 4-30个包含数字、字母及下划线的字符
 	private String userName;
 	
 	@XStreamAsAttribute
-	@Pattern(regexp="S{6,30}")
+	@Pattern(regexp="S{6,30}") // 6-30个非空白字符
 	private String password;
 	
 	@XStreamAsAttribute
-	@Length(min=2,max=100)
+	@Length(min=2,max=100) // hibernate validator，长度2-100
 	private String realName;
 	
 	@XStreamAsAttribute
-	@Past
+	@Past // 时间必须是过去的时间
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date birthday;
 	
 	@XStreamAsAttribute
     @DecimalMin(value="1000.00")
-    @DecimalMax(value="100000.00")
+    @DecimalMax(value="100000.00") // 1000.0 - 100000.0 之间
 	@NumberFormat(pattern="#,###.##")
 	private long salary;
 	

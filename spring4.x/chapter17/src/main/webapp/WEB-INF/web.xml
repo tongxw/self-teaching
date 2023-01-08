@@ -26,6 +26,7 @@
 
 	<servlet-mapping>
 		<servlet-name>smart</servlet-name>
+		<!--为REST风格URL捕捉所有请求-->
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
