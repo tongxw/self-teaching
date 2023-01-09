@@ -71,6 +71,7 @@ public class MockitoSampleTest {
 		MockitoAnnotations.initMocks(mockUser);
 		when(mockUser.getUserId()).thenReturn(1);
 		when(mockUser.getUserName()).thenReturn("tom");
+
 		assertEquals(mockUser.getUserId(),1);
 		assertEquals(mockUser.getUserName(), "tom");
 	}

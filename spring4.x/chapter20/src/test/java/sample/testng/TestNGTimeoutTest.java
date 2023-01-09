@@ -13,9 +13,14 @@ public class TestNGTimeoutTest {
         user.setUserName("admin");
     } 
 
-	@Test(timeOut = 10)
-	public void testUser(){
+	@Test(timeOut = 2000)
+	public void testUser() {
         assertNotNull(user);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         assertEquals( user.getUserName(),"admin");
 	}
 }

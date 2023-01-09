@@ -14,28 +14,33 @@ public class CustomExtModule implements Module {
 	protected class CustomExtListener extends TestListener {
 		@Override
 		public void beforeTestSetUp(Object testObject, Method testMethod) {
-
+			System.out.println("custom ext module -> beforeTestSetUp!");
 		}
 
 		@Override
 		public void afterCreateTestObject(Object testObject) {
+			System.out.println("custom ext module -> afterCreateTestObject!");
 		}
 
 		@Override
 		public void afterTestMethod(Object testObject, Method testMethod,
 				Throwable testThrowable) {
+			System.out.println("custom ext module -> afterTestMethod!");
 		}
 
 		@Override
 		public void afterTestTearDown(Object testObject, Method testMethod) {
+			System.out.println("custom ext module -> afterTestTearDown!");
 		}
 
 		@Override
 		public void beforeTestClass(Class<?> testClass) {
+			System.out.println("custom ext module -> beforeTestClass!");
 		}
 
 		@Override
 		public void beforeTestMethod(Object testObject, Method testMethod) {
+			System.out.println("custom ext module -> beforeTestMethod!");
 		}
 	}
 

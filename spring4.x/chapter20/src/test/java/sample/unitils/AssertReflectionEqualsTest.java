@@ -2,10 +2,11 @@ package sample.unitils;
 
 import org.testng.annotations.*;
 import com.smart.domain.User;
+import org.unitils.reflectionassert.ReflectionAssert;
 import org.unitils.reflectionassert.ReflectionComparatorMode;
 
 import java.util.Calendar;
-import static org.unitils.reflectionassert.ReflectionAssert.*;
+//import static org.unitils.reflectionassert.ReflectionAssert.*;
 import static org.unitils.reflectionassert.ReflectionComparatorMode.IGNORE_DEFAULTS;
 
 public class AssertReflectionEqualsTest {
@@ -17,8 +18,8 @@ public class AssertReflectionEqualsTest {
 
 
         //① 测试两个数组的值是否相等，忽略顺序
-        //assertReflectionEquals(orderList1, orderList2,LENIENT_ORDER);
-        assertLenientEquals(orderList1, orderList2);
+        ReflectionAssert.assertReflectionEquals(orderList1, orderList2, ReflectionComparatorMode.LENIENT_ORDER);
+        ReflectionAssert.assertLenientEquals(orderList1, orderList2);
 
 
         //② 测试两个对象的值是否相等，忽略时间值是否相等
@@ -30,7 +31,7 @@ public class AssertReflectionEqualsTest {
         cal2.set(Calendar.DATE, 15);
         //user2.setLastVisit(cal2.getTime());
         //assertReflectionEquals(user1, user2, ReflectionComparatorMode.LENIENT_DATES);
-        assertLenientEquals(user1, user2);
+        ReflectionAssert.assertLenientEquals(user1, user2);
 
     }
 
@@ -38,7 +39,12 @@ public class AssertReflectionEqualsTest {
     public void testReflection(){
         User user1 = new User("tom","1234");
         User user2 = new User("tom","1234");
-        assertReflectionEquals(user1, user2);
+        ReflectionAssert.assertReflectionEquals(user1, user2);
+
+        // properties test
+        ReflectionAssert.assertPropertyLenientEquals("userName", "tom", user1);
+        ReflectionAssert.assertPropertyLenientEquals("lastVisit", null, user1);
+
     }
 
 

@@ -31,12 +31,12 @@ public class MultiSchemaXlsDataSetReader {
 							.toArray(new ITable[] {}));
 					dataSets.setDataSetForSchema(entry.getKey(), ds);
 				} catch (Exception e) {
-					throw new UnitilsException("����DataSetʧ��!",  e);
+					throw new UnitilsException("Failed to create dataset!",  e);
 				}
 			}
 			return dataSets;
 		} catch (Exception e) {
-			throw new UnitilsException("����EXCEL�ļ����?", e);
+			throw new UnitilsException("Failed to parse Excel file: ", e);
 		}
 	}
 

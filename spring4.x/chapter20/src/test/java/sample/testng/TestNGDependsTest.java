@@ -17,6 +17,7 @@ public class TestNGDependsTest {
     }
 
     @Test(dependsOnMethods = {"testMethod1","testMethod2"},alwaysRun=true)
+//    @Test
     public void testMethod3() {
 
     }

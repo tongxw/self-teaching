@@ -13,6 +13,7 @@ public class BaseServiceTest extends UnitilsJUnit4 {
 	public ApplicationContext applicationContext;
 	@Test
 	public void testApplicationContext(){
+		System.out.println("BaseServiceTest::testApplicationContext");
 		assertNotNull(applicationContext);
 	}
 }
