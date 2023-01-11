@@ -16,4 +16,8 @@ public class Greeting {
     public String getContent() {
         return content;
     }
+
+    public String toString() {
+        return "id: " + this.getId() + " content: " + this.getContent();
+    }
 }
